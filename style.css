@@ -1,0 +1,330 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Readex Pro", sans-serif;
+}
+
+:root {
+  font-size: calc(16px + (24 - 16) * (100vw - 320px) / (1920 - 320));
+}
+
+body,
+button,
+input {
+  font: 0.8em Hind, sans-serif; /* SEARCH DIMENSIONS AND FONT */
+  line-height: 1.5em;
+}
+
+body,
+.search-bar {
+  display: flex;
+}
+
+.search-bar input,
+.search-btn,
+.search-btn:before,
+.search-btn:after {
+  transition: all 0.25s ease-out;
+}
+.search-bar input,
+.search-btn {
+  /* SEARCH ICON DIMENSIONS */
+  width: 3em;
+  height: 3em;
+}
+.search-bar input:invalid:not(:focus),
+.search-btn {
+  cursor: pointer;
+}
+.search-bar,
+.search-bar input:focus,
+.search-bar input:valid {
+  width: 100%;
+}
+.search-bar input:focus,
+.search-bar input:not(:focus) + .search-btn:focus {
+  outline: transparent;
+}
+.search-bar {
+  margin: auto;
+  left: 0%;
+  padding: 0 0 1.5em 1.5em; /* SEARCH PADDING. THING TO PLAY WITH*/
+  /* justify-content: right; SEARCH ICON POSITION */
+  max-width: 130vw; /* WIDTH OF SEARCHBAR */
+}
+.search-bar input {
+  background: transparent;
+  border-radius: 1.5em;
+  box-shadow: 0 0 0 0.04em #000000 inset; /* ICON CIRCLE */
+  padding: 0.75em;
+  transform: translate(0.5em, 0.5em) scale(0.5);
+  transform-origin: 100% 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.search-bar input::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+.search-bar input:focus,
+.search-bar input:valid {
+  background: rgb(0, 0, 0);
+  border-radius: 0.375em 0 0 0.375em;
+  box-shadow: 0 0 0 0.01em inset; /* THICKNESS OF SEARCHBAR OUTLINE */
+  transform: scale(1);
+}
+.search-btn {
+  /* MAIN ICON STYLING */
+  border-radius: 0 0.75em 0.75em 0 / 0 1.5em 1.5em 0;
+  padding: 0.75em;
+  position: relative;
+  transform: translate(0.25em, 0.25em) rotate(45deg) scale(0.25, 0.125);
+  transform-origin: 0 50%;
+}
+.search-btn:before,
+.search-btn:after {
+  content: "";
+  display: block;
+  opacity: 0;
+  position: absolute;
+}
+.search-btn:before {
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.1em #ffffff inset; /* SEARCHBAR ICON CIRCLE*/
+  top: 0.75em;
+  left: 0.75em;
+  width: 1.2em;
+  height: 1.2em;
+}
+.search-btn:after {
+  background: #ffffff; /* SEARCHBAR ICON LINE*/
+  border-radius: 0 0.25em 0.25em 0;
+  top: 58%;
+  left: 58%;
+  width: 0.5em; /* LENGTH OF LINE. SEARCHBAR ICON*/
+  height: 0.2em; /* WIDTH OF LINE. SEARCHBAR ICON*/
+  transform: translate(0.2em, 0) rotate(45deg);
+  transform-origin: 0 50%;
+}
+.search-btn span {
+  display: inline-block;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+}
+
+/* Active state */
+.search-bar input:focus + .search-btn,
+.search-bar input:valid + .search-btn {
+  border-radius: 0 0.375em 0.375em 0; /* SEARCHBAR ICON-BOX EDGE*/
+  transform: scale(1);
+}
+.search-bar input:focus + .search-btn:before,
+.search-bar input:focus + .search-btn:after,
+.search-bar input:valid + .search-btn:before,
+.search-bar input:valid + .search-btn:after {
+  opacity: 1;
+}
+.search-bar input:focus + .search-btn:hover,
+.search-bar input:valid + .search-btn:hover,
+.search-bar input:valid:not(:focus) + .search-btn:focus {
+  background: #d6d6d6; /* SEARCHBAR ICON HOVER BACKGROUND*/
+}
+.search-bar input:focus + .search-btn:active,
+.search-bar input:valid + .search-btn:active {
+  transform: translateY(1px);
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  body,
+  input {
+    color: #000000; /*search bar cursor pointer*/
+  }
+
+  /* ICON INNER CIRCLE */
+
+  .search-bar input {
+    box-shadow: 0 0 0 0.01em #000000 inset;
+  }
+
+  .search-bar input:focus,
+  .search-bar input:valid {
+    background: #ffffff; /* SEARCH BAR INNER BACKGROUND*/
+  }
+  .search-btn {
+    background: #494949; /* AFFECTS BOTH ICON LINE AND SEARCHBAR ICON BACKGROUND*/
+  }
+}
+
+.menu {
+  position:fixed;
+  width: 100vw;
+  height: 90px;
+  /* padding-top: 10px; */
+  bottom: 0;
+  border-top: 1px black solid;
+  background: #B6C6AB;
+}
+/* ________________________________________________________________________________________________________________________________ */
+
+.headerL {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  height: 230px;
+  width: 100%;
+  position: fixed;
+  top: 0%;
+  background-color: white;
+  border-bottom: 2px solid #000000 ;
+  z-index: 10;
+}
+
+.ftr {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+.ftr > a:link{
+	color: black;
+	text-decoration: none;
+}
+
+.ftr > a:visited{
+	color: black;
+	text-decoration: none;
+}
+
+.scaleFtr{
+  font-size: 0.8vw;
+}
+
+.mediaL img {
+	height: 30px;
+	width: auto;
+}
+
+.logo {
+  padding: 50px 50px;
+}
+
+.soilD {
+  width: 15vw;
+  height: auto;
+}
+
+.category ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+.frmt {
+  font-size: 2vw;
+  font-weight: 500;
+  color: black;
+  text-decoration: none;
+  padding: 0rem 5rem;
+}
+
+.content {
+  padding-top: 230px;
+  padding-bottom: 100px;
+  width: 100vw;
+}
+/*--------------------------------------------------------------------------------------------*/
+
+header ul li.active {
+  background: var(--gra);
+}
+header ul li.active a {
+  color: white;
+  font-weight: bold;
+}
+
+.room-gallery {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#slider {
+  overflow: hidden;
+  z-index: -100;
+}
+
+#slider figure{
+  position: relative;
+  width: 1000%;
+  margin: 0;
+  left: 0;
+  animation: 20s slider infinite;
+}
+
+#slider figure img {
+  width: 10%;
+  float: left;
+  margin: 0;
+}
+
+@keyframes slider{
+  0%{
+      left: 0%;
+  }
+  10%{
+      left: -100%;
+  }
+  20%{
+      left: -200%;
+  }
+  30%{
+      left: -300%;
+  }
+  40%{
+      left: -400%;
+  }
+  50%{
+      left: -500%;
+  }
+  60%{
+      left: -600%;
+  }
+  70%{
+      left: -700%;
+  }
+  80%{
+      left: -800%;
+  }
+  90%{
+      left: -900%;
+  }
+  95%{
+      left: -900%;
+  }
+}
+
+.room-preview {
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+	width: 60%;
+}
+
+.room-preview img {
+  margin: 20px;
+  height: 300px;
+  width: 300px;
+  transition: height 0.4s ease;
+  cursor: pointer;
+  border: 20px black;
+  border-radius: 20px;
+}
